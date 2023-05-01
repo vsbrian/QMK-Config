@@ -38,8 +38,8 @@ enum layers {
 #define ADJUST   MO(_ADJUST)
 #define NUM      MO(_NUM)
 
-#define LSFT_T   MT(MOD_LSFT, KC_T)
-#define RSFT_N   MT(MOD_RSFT, KC_N)
+#define LSHFT_T   MT(MOD_LSFT, KC_T)
+#define RSHFT_N   MT(MOD_RSFT, KC_N)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_TAB  MT(MOD_LALT, KC_TAB)
 
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_COLEMAK_DH] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN,  KC_MINS,
-     KC_ESC  , KC_A ,  KC_R   ,  KC_S  ,  LSFT_T,   KC_G ,                                        KC_M,  RSFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
+     KC_ESC  , KC_A ,  KC_R   ,  KC_S  , LSHFT_T,   KC_G ,                                        KC_M, RSHFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LPRN,     NUM,     FKEYS  , KC_RPRN, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
                                  KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NAV_DEL,     SYM_ENT, KC_BSPC, KC_RALT, KC_RGUI, KC_UP
     ),
