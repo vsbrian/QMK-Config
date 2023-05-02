@@ -264,6 +264,9 @@ bool oled_task_user(void) {
             case _ADJUST:
                 oled_write_P(PSTR("Adjust\n"), false);
                 break;
+            case _NUM:
+                oled_write_P(PSTR("Num\n"), false);
+                break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
         }
