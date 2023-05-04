@@ -67,6 +67,9 @@ bool oled_task_kb(void) {
             case 6:
                 oled_write_P(PSTR("Adjust\n"), false);
                 break;
+            case 7:
+                oled_write_P(PSTR("Num\n"), false);
+                break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
         }
