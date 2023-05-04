@@ -16,9 +16,9 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-    _QWERTY,
+    _QWERTY = 0,
     _DVORAK,
-    _COLEMAK_DH = 0,
+    _COLEMAK_DH,
     _NAV,
     _SYM,
     _FUNCTION,
