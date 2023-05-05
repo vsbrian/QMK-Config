@@ -39,6 +39,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   return true;
 }
 
+void matrix_scan_user(void) {
+  layer_lock_task();
+  // Other tasks...
+}
+
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
 #define COLEMAK  DF(_COLEMAK_DH)
