@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include "feature/layer_lock.h"
+#include "features/layer_lock.h"
 
 enum layers {
     _QWERTY = 0,
