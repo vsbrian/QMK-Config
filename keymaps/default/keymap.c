@@ -26,6 +26,10 @@ enum layers {
     _NUM,
 };
 
+enum custom_keycodes {
+  LLOCK = SAFE_RANGE,
+  // Other custom keys...
+};
 
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
