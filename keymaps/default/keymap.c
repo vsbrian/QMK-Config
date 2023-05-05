@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "features/layer_lock.h"
 
 enum layers {
     _QWERTY = 0,
@@ -30,6 +31,13 @@ enum custom_keycodes {
   LLOCK = SAFE_RANGE,
   // Other custom keys...
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
+  // Your macros ...
+
+  return true;
+}
 
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
