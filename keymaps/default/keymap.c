@@ -64,7 +64,6 @@ void matrix_scan_user(void) {
 
 #define SYM_ENT  LT(SYM, KC_ENT)
 #define NUM_DEL  LT(NUM, KC_DEL)
-#define NAV_BSPC LT(NAV, KC_BSPC)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -76,17 +75,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Esc   |   A  |   R  |   S  |   T  |   G  |                              |   M  |   N  |   E  |   I  |   O  |  '  "  |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   D  |   V  |   (  |      |  |F-keys|   )  |   K  |   H  | ,  < | . >  | /  ? | RShift |
+ * | LShift |   Z  |   X  |   C  |   D  |   V  |   (  |LLock |  |F-keys|   )  |   K  |   H  | ,  < | . >  | /  ? | RShift |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | LCTL |Adjust| LAlt/| Space| Num/ |  | Sym/ | NAV/ | RAlt | RGUI |  UP  |
- *                        |      |      | Tab  |      | Del  |  | ENT  | Bksp |      |      |      |
+ *                        | LCTL |Adjust| LAlt/| Space| Num/ |  | Sym/ | Bksp | NAV  | RGUI |  UP  |
+ *                        |      |      | Tab  |      | Del  |  | ENT  |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_COLEMAK_DH] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN,  KC_MINS,
      KC_ESC  , KC_A ,  KC_R   ,  KC_S  , LSHFT_T,   KC_G ,                                        KC_M, RSHFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LPRN,   LLOCK,     FKEYS  , KC_RPRN, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                 KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT,NAV_BSPC, KC_RALT, KC_RGUI, KC_UP
+                                 KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NAV, KC_RGUI, KC_UP
     ),
      
  /*
@@ -107,11 +106,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
      KC_ESC  , KC_A ,  KC_S   ,  KC_D  ,LSHFT_F ,   KC_G ,                                        KC_H,RSHFT_J ,  KC_K ,   KC_L ,KC_SCLN,KC_QUOTE,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LPRN,  LLOCK,     FKEYS  , KC_RPRN, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT,NAV_BSPC, KC_RALT, KC_RGUI, KC_UP
+                                KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NAV, KC_RGUI, KC_UP
     ),
 
 /*
- * Base Layer: Dvorak
+ * Base La
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  Tab   | ' "  | , <  | . >  |   P  |   Y  |                              |   F  |   G  |   C  |   R  |   L  |  -  _  |
