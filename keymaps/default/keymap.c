@@ -98,8 +98,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |   (  |      |  |F-keys|   )  |   N  |   M  | ,  < | . >  | /  ? | RShift |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | LCTL |Adjust| LAlt/| Space| Num/ |  | Sym/ | NAV/ | RAlt | RGUI |  UP  |
- *                        |      |      | Tab  |      | Del  |  | ENT  | Bksp |      |      |      |
+ *                        | LCTL |Adjust| LAlt/| Space| Num/ |  | Sym/ | Bksp | NAV  | RGUI |  UP  |
+ *                        |      |      | Tab  |      | Del  |  | ENT  |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 /*
- * Base La
+ * Base Layer: Dvorak
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  Tab   | ' "  | , <  | . >  |   P  |   Y  |                              |   F  |   G  |   C  |   R  |   L  |  -  _  |
