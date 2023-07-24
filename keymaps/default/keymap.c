@@ -27,10 +27,11 @@ enum layers {
     _NUM,
 };
 
-enum combos {
+enum MyCombos {
   ST_LPAR,
   NE_RPAR
 };
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM LBracketcombo[] = {KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM RBracketcombo[] = {KC_N, KC_E, COMBO_END};
