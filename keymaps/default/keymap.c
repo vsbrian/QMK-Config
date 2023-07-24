@@ -27,6 +27,19 @@ enum layers {
     _NUM,
 };
 
+enum combos {
+  ST_LPAR,
+  NE_RPAR
+};
+
+const uint16_t PROGMEM LBracketcombo[] = {KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM RBracketcombo[] = {KC_N, KC_E, COMBO_END};
+
+combo_t key_combos[] = {
+  [ST_LPAR] = COMBO(LBracketcombo, KC_LPRN),
+  [NE_RPAR] = COMBO(RBracketcombo, KC_RPRN),
+};
+
 enum custom_keycodes {
   LLOCK = SAFE_RANGE,
   // Other custom keys...
