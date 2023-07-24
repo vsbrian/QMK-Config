@@ -29,16 +29,8 @@ enum layers {
 
 enum MyCombos {
   ST_LPAR,
-  NE_RPAR
-};
-uint16_t COMBO_LEN = COMBO_LENGTH;
-
-const uint16_t PROGMEM LBracketcombo[] = {KC_S, KC_T, COMBO_END};
-const uint16_t PROGMEM RBracketcombo[] = {KC_N, KC_E, COMBO_END};
-
-combo_t key_combos[] = {
-  [ST_LPAR] = COMBO(LBracketcombo, KC_LPRN),
-  [NE_RPAR] = COMBO(RBracketcombo, KC_RPRN),
+  NE_RPAR,
+  COMBO_LENGTH
 };
 
 enum custom_keycodes {
@@ -78,6 +70,17 @@ void matrix_scan_user(void) {
 
 #define SYM_ENT  LT(SYM, KC_ENT)
 #define NUM_DEL  LT(NUM, KC_DEL)
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM LBracketcombo[] = {KC_S, LSHFT_T, COMBO_END};
+const uint16_t PROGMEM RBracketcombo[] = {RSHFT_N, KC_E, COMBO_END};
+
+combo_t key_combos[] = {
+  [ST_LPAR] = COMBO(LBracketcombo, KC_LPRN),
+  [NE_RPAR] = COMBO(RBracketcombo, KC_RPRN),
+};
+
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
