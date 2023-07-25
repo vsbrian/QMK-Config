@@ -30,6 +30,12 @@ enum layers {
 enum MyCombos {
   ST_LPAR,
   NE_RPAR,
+  CD_LSQR
+  HH_RSQR
+  FP_LCUR
+  LU_RCUR
+  TG_LANG
+  MN_RANG
   COMBO_LENGTH
 };
 
@@ -75,10 +81,22 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM LBracketcombo[] = {KC_S, LSHFT_T, COMBO_END};
 const uint16_t PROGMEM RBracketcombo[] = {RSHFT_N, KC_E, COMBO_END};
+const uint16_t PROGMEM LSquarecombo[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM RSquarecombo[] = {KC_H, KC_COMM, COMBO_END};
+const uint16_t PROGMEM LCurlycombo[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM RCurlycombo[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM LAngcombo[] = {KC_G, LSHFT_T, COMBO_END};
+const uint16_t PROGMEM RAngcombo[] = {RSHFT_N, KC_M, COMBO_END};
 
 combo_t key_combos[] = {
   [ST_LPAR] = COMBO(LBracketcombo, KC_LPRN),
   [NE_RPAR] = COMBO(RBracketcombo, KC_RPRN),
+  [CD_LSQR] = COMBO(LSquarecombo, KC_LBRC),
+  [HH_RSQR] = COMBO(RSquarecombo, KC_RBRC),
+  [FP_LCUR] = COMBO(LCurlycombo, KC_LCBR),
+  [LU_RCUR] = COMBO(RCurlycombo, KC_RCBR),
+  [TG_RLANG] = COMBO(LAngcombo, KC_LABK),
+  [MN_RANG] = COMBO(RAngcombo, KC_RABK),
 };
 
 
@@ -100,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_COLEMAK_DH] = LAYOUT(
      KC_MUTE , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN,  KC_MINS,
-     KC_ESC  , KC_A ,  KC_R   ,  KC_S  , LSHFT_T,   KC_G ,                                        KC_M, RSHFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
+     QK_GESC , KC_A ,  KC_R   ,  KC_S  , LSHFT_T,   KC_G ,                                        KC_M, RSHFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_PGDN,   LLOCK,     FKEYS  , KC_PGUP, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
                                  KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NAV, KC_RGUI, KC_UP
     ),
