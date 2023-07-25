@@ -30,12 +30,12 @@ enum layers {
 enum MyCombos {
   ST_LPAR,
   NE_RPAR,
-  CD_LSQR
-  HH_RSQR
-  FP_LCUR
-  LU_RCUR
-  TG_LANG
-  MN_RANG
+  CD_LSQR,
+  HH_RSQR,
+  FP_LCUR,
+  LU_RCUR,
+  TG_LANG,
+  MN_RANG,
   COMBO_LENGTH
 };
 
