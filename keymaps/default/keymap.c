@@ -36,7 +36,7 @@ enum MyCombos {
   LU_RCUR,
   TG_LANG,
   MN_RANG,
-  COMBO_LENGTH
+  COMBO_LENGTH,
 };
 
 enum custom_keycodes {
@@ -95,7 +95,7 @@ combo_t key_combos[] = {
   [HH_RSQR] = COMBO(RSquarecombo, KC_RBRC),
   [FP_LCUR] = COMBO(LCurlycombo, KC_LCBR),
   [LU_RCUR] = COMBO(RCurlycombo, KC_RCBR),
-  [TG_RLANG] = COMBO(LAngcombo, KC_LABK),
+  [TG_LANG] = COMBO(LAngcombo, KC_LABK),
   [MN_RANG] = COMBO(RAngcombo, KC_RABK),
 };
 
