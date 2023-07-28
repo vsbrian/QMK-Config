@@ -22,8 +22,6 @@
 // Lets you roll mod-tap keys
 #define IGNORE_MOD_TAP_INTERRUPT
 
-#define LAYER_LOCK_IDLE_TIMEOUT 60000  // Turn off after 60 seconds.
-
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0
 
