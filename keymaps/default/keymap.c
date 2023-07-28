@@ -62,6 +62,7 @@ enum MyCombos {
 #define NUM_DEL  LT(NUM, KC_DEL)
 #define SYM_SPC  LT(SYM, KC_SPC)
 
+#define TAPPING_TOGGLE 2
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM LBracketcombo[] = {KC_S, LSHFT_T, COMBO_END};
