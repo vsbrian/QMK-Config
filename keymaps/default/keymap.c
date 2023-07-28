@@ -45,6 +45,7 @@ enum MyCombos {
 #define DVORAK   DF(_DVORAK)
 
 #define SYM      MO(_SYM)
+#define SYM2     MO(_SYM2)
 #define NAV      MO(_NAV)
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
