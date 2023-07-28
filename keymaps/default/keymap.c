@@ -270,9 +270,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  *                        `----------------------------------'  `----------------------------------'
 //  */
        [_NUM] = LAYOUT(
-         KC_NO,   KC_NO, KC_7, KC_8,    KC_9, KC_COMM,                             KC_NUM,KC_EQUAL,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
-         KC_NO,    KC_0, KC_4, KC_5,    KC_6,    KC_0,                             KC_DLR, KC_PLUS, KC_ASTR,   KC_NO,   KC_NO,  KC_NO,
-         KC_NO, KC_SLSH, KC_1, KC_2,    KC_3,  KC_DOT, _______, _______, _______, KC_PERC, KC_MINS, KC_SLSH,   KC_NO,   KC_NO,  KC_NO,
+         KC_NO,   KC_NO, KC_7, KC_8,    KC_9, KC_COMM,                                      KC_NUM,KC_EQUAL,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+         KC_NO,    KC_0, KC_4, KC_5,    KC_6,    KC_0,                                      KC_DLR, KC_PLUS, KC_ASTR,   KC_NO,   KC_NO,  KC_NO,
+         KC_NO, KC_SLSH, KC_1, KC_2,    KC_3,  KC_DOT, _______, _______, _______, _______, KC_PERC, KC_MINS, KC_SLSH,   KC_NO,   KC_NO,  KC_NO,
                             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
       ),
 };
