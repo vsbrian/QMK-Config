@@ -14,7 +14,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include "features/layer_lock.h"
 
 enum layers {
     _COLEMAK_DH = 0,
@@ -22,6 +21,7 @@ enum layers {
     _DVORAK,
     _NAV,
     _SYM,
+    _SYM2,
     _FUNCTION,
     _ADJUST,
     _NUM,
@@ -38,23 +38,6 @@ enum MyCombos {
   MN_RANG,
   COMBO_LENGTH,
 };
-
-enum custom_keycodes {
-  LLOCK = SAFE_RANGE,
-  // Other custom keys...
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
-  // Your macros ...
-
-  return true;
-}
-
-void matrix_scan_user(void) {
-  layer_lock_task();
-  // Other tasks...
-}
 
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
@@ -74,8 +57,9 @@ void matrix_scan_user(void) {
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_TAB  MT(MOD_LALT, KC_TAB)
 
-#define SYM_ENT  LT(SYM, KC_ENT)
+#define SYM_ENT  LT(SYM2, KC_ENT)
 #define NUM_DEL  LT(NUM, KC_DEL)
+#define SYM_SPC  LT(SYM, KC_SPC)
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
@@ -119,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_COLEMAK_DH] = LAYOUT(
      KC_MUTE , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN,  KC_MINS,
      QK_GESC , KC_A ,  KC_R   ,  KC_S  , LSHFT_T,   KC_G ,                                        KC_M, RSHFT_N,  KC_E ,   KC_I ,  KC_O , KC_QUOTE,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_PGDN,   LLOCK,     FKEYS  , KC_PGUP, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                 KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NAV, KC_RGUI, KC_UP
+     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_PGDN, QK_LOCK,     FKEYS  , KC_PGUP, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
+                                 KC_LCTL, ADJUST, ALT_TAB, SYM_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NUM, KC_RGUI, KC_UP
     ),
      
  /*
@@ -140,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_MINS,
      KC_ESC  , KC_A ,  KC_S   ,  KC_D  ,LSHFT_F ,   KC_G ,                                        KC_H,RSHFT_J ,  KC_K ,   KC_L ,KC_SCLN,KC_QUOTE,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LPRN,  LLOCK,     FKEYS  , KC_RPRN, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
+     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LPRN,  QK_LOCK,     FKEYS  , KC_RPRN, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
                                 KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC,  NAV, KC_RGUI, KC_UP
     ),
 
@@ -161,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DVORAK] = LAYOUT(
      KC_TAB  ,KC_QUOTE,KC_COMM,  KC_DOT,   KC_P ,   KC_Y ,                                        KC_F,   KC_G ,  KC_C ,   KC_R ,  KC_L , KC_MINS,
      KC_ESC  , KC_A ,  KC_O   ,  KC_E  ,   KC_U ,   KC_I ,                                        KC_D,   KC_H ,  KC_T ,   KC_N ,  KC_S , KC_QUOTE,
-     KC_LSFT ,KC_SCLN, KC_Q   ,  KC_J  ,   KC_K ,   KC_X , KC_LBRC,  LLOCK,     FKEYS  , KC_RBRC, KC_B,   KC_M ,  KC_W ,   KC_V ,  KC_Z , KC_RSFT,
+     KC_LSFT ,KC_SCLN, KC_Q   ,  KC_J  ,   KC_K ,   KC_X , KC_LBRC,  QK_LOCK,     FKEYS  , KC_RBRC, KC_B,   KC_M ,  KC_W ,   KC_V ,  KC_Z , KC_RSFT,
                                 KC_LCTL,  ADJUST, ALT_TAB, KC_SPC, NUM_DEL,     SYM_ENT, KC_BSPC, KC_RALT, KC_RGUI, KC_UP
     ),
 
@@ -201,6 +185,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SYM] = LAYOUT(
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                           KC_MINUS, KC_AMPR, KC_PIPE, KC_TILDE,  KC_GRV, KC_PLUS,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                           KC_EQUAL, KC_EXLM,   KC_AT,  KC_HASH, KC_ASTR, KC_CIRC,
+     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, _______, _______, _______, KC_PERC,  KC_DLR, KC_SCLN, KC_COLON, KC_BSLS, KC_SLSH,
+                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    ),
+
+/*
+ * Sym2 Layer: Numbers and symbolsFsh
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |    ~   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   +    |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * |    |   |   \  |  :   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  ,   |  .   |  /   |   ?    |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+    [_SYM2] = LAYOUT(
       KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
      KC_TILD , KC_EXLM,  KC_AT , KC_HASH,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
      KC_PIPE , KC_BSLS, KC_COLN, KC_SCLN, KC_MINS, KC_LBRC, KC_LCBR, _______, _______, KC_RCBR, KC_RBRC, KC_UNDS, KC_COMM,  KC_DOT, KC_SLSH, KC_QUES,
