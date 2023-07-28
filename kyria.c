@@ -62,12 +62,15 @@ bool oled_task_kb(void) {
                 oled_write_P(PSTR("Sym\n"), false);
                 break;
             case 5:
-                oled_write_P(PSTR("Function\n"), false);
+                oled_write_P(PSTR("Sym2\n"), false);
                 break;
             case 6:
-                oled_write_P(PSTR("Adjust\n"), false);
+                oled_write_P(PSTR("Function\n"), false);
                 break;
             case 7:
+                oled_write_P(PSTR("Adjust\n"), false);
+                break;
+            case 8:
                 oled_write_P(PSTR("Num\n"), false);
                 break;
             default:
