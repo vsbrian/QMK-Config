@@ -36,6 +36,7 @@ enum MyCombos {
   LU_RCUR,
   TG_LANG,
   MN_RANG,
+  C_CapLock,
   COMBO_LENGTH,
 };
 
@@ -62,7 +63,6 @@ enum MyCombos {
 #define NAV_DEL  LT(NAV, KC_DEL)
 #define SYM_SPC  LT(SYM, KC_SPC)
 
-#define TAPPING_TOGGLE 2
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM LBracketcombo[] = {KC_S, LSHFT_T, COMBO_END};
@@ -73,6 +73,7 @@ const uint16_t PROGMEM LCurlycombo[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM RCurlycombo[] = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM LAngcombo[] = {KC_G, LSHFT_T, COMBO_END};
 const uint16_t PROGMEM RAngcombo[] = {RSHFT_N, KC_M, COMBO_END};
+const uint16_t PROGMEM CapLock[] = {LSHFT_T, RSHFT_N, COMBO_END};
 
 combo_t key_combos[] = {
   [ST_LPAR] = COMBO(LBracketcombo, KC_LPRN),
@@ -83,6 +84,7 @@ combo_t key_combos[] = {
   [LU_RCUR] = COMBO(RCurlycombo, KC_RCBR),
   [TG_LANG] = COMBO(LAngcombo, KC_LABK),
   [MN_RANG] = COMBO(RAngcombo, KC_RABK),
+  [C_CapLock] = COMBO(CapLock, CW_TOGG),
 };
 
 
