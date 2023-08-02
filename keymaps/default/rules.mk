@@ -12,4 +12,3 @@ SPACE_CADET_ENABLE=no
 RGB_MATRIX_ENABLE = no     # Disable keyboard RGB matrix, as it is enabled by default on rev3
 RGBLIGHT_ENABLE = yes      # Enable keyboard RGB underglow
 AUDIO_ENABLE = no          # Audio output
-SRC += features/custom_shift_keys.c
