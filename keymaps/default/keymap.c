@@ -14,6 +14,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "features/custom_shift_keys.h"
+
+const custom_shift_key_t custom_shift_keys[] = {
+  {KC_DOT , KC_COLON}, 
+  {KC_COMM, KC_SCLN}, 
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 enum layers {
     _COLEMAK_DH = 0,
@@ -39,6 +47,13 @@ enum MyCombos {
   C_CapLock,
   COMBO_LENGTH,
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  if (!process_custom_shift_keys(keycode, record)) { return false; }
+  // Your macros ...
+
+  return true;
+}
 
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
