@@ -56,9 +56,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             // when keycode PW is released
         }
         break;
+    case LT(0,EM): //sends colon on tap and semicolon on hold
+    if (record->tap.count && record->event.pressed) {
+        return true; // Return true for normal processing of tap keycode
+        break;
+    } else if (record->event.pressed) {
+        tap_code16(PW); // Intercept hold function to send SEMICOLON    
+        return false;
     }
-
-  return true;
+return true; // this allows for normal processing of key release!
 }
 
 void matrix_scan_user(void) {
