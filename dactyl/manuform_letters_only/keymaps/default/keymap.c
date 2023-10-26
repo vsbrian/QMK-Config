@@ -117,6 +117,18 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 #define REDO  LCTL(KC_Y)
 #define FIND  LCTL(KC_F)
 
+const key_override_t space_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SPCE, KC_MINS);
+const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
+const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLON);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &space_key_override,
+    &comma_key_override,
+    &dot_key_override,
+    NULL // Null terminate the array of overrides!
+};
+
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM LBracketcombo[] = {LALT_S, LSHFT_T, COMBO_END};
@@ -144,11 +156,11 @@ combo_t key_combos[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_COLEMAK_DH] = LAYOUT_manuform_let(
-           UNDO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                             KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_MINS,
+           UNDO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                             KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, LALT(KC_TAB),
            REDO,  LGUI_A,  LCTL_R,  LALT_S, LSHFT_T,    KC_G,                             KC_M, RSHFT_N,  RALT_E,  RCTL_I,  RGUI_O, KC_QUOT,
             CUT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                             KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,      EM,
           KC_UP, KC_DOWN,    COPY,   PASTE,  KC_TAB, SYM_SPC,  KC_DEL,        SYM_ENT, KC_BSPC, TT(NUM),    FIND, KC_RGUI, KC_LEFT,KC_RIGHT,
-                                            KC_ESC,  KC_CAPS, KC_MINS,        KC_TILD, KC_PGDN, KC_PGUP
+                                            KC_ESC,  KC_CAPS, KC_UNDS,        KC_TILD, KC_PGDN, KC_PGUP
     ),
 
     [_QWERTY] = LAYOUT_manuform_let(
